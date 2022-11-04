@@ -33,7 +33,7 @@ class WorkController extends Controller
             $work->image   = $as_name;
         }
         $work->save();
-        return redirect()->back();
+        return redirect(route('admin.work.index'));
     }
 
     public function edit($id)

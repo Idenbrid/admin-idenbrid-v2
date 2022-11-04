@@ -32,6 +32,23 @@
                      		</div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control">Category:</label>
+                                        <select id="addOrganization" name="category_id"
+                                            class="form-control border-primary col-md-9 customSelect">
+                                        
+                                            @foreach ($categories as $category)
+                                                <option class="smallWidth" value="{{ $category->id }}">
+                                                    {{ $category->title }}</option>
+                                            @endforeach
+                                        </select>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="row">
                             <div class="col-md-9">

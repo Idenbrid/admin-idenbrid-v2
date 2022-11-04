@@ -26,11 +26,50 @@
 	                              	<label class="col-md-3 label-control" for="userinput1">Title:</label>
 		                            <div class="col-md-9">
 		                                <input type="text" id="userinput1" value="{{$blog->title}}" class="form-control border-primary" placeholder="Enter your name here..."
-		                                name="title" >
+		                                name="title" required>
 		                            </div>
                         		</div>
                      		</div>
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control">Category:</label>
+                                        <select id="addOrganization" name="categories[]"
+                                            class="js-example-basic-multiple form-control border-primary col-md-9 customSelect"
+                                            multiple>
+                                        
+                                            @foreach ($categories as $category)
+                                            <option
+                                            @foreach($blog->categories as $postCategory)
+                                                {{ $postCategory->id == $category->id ? 'selected' : '' }}
+                                            @endforeach
+                                            value="{{ $category->id }}">{{ $category->title }}</option>
+                                            @endforeach
+                                        </select>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        {{-- <div class="form-group form-float">
+                            <div class="form-line {{ $errors->has('categories') ? 'focused error' : '' }}">
+                                <label for="category">Select Category</label>
+                                <select name="categories[]" id="category" class="form-control show-tick" data-live-search="true" multiple>
+                                    @foreach($categories as $category)
+                                        <option
+                                            @foreach($post->categories as $postCategory)
+                                                {{ $postCategory->id == $category->id ? 'selected' : '' }}
+                                            @endforeach
+                                            value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div> --}}
 
                         {{-- <div class="row">
                             <div class="col-md-9">

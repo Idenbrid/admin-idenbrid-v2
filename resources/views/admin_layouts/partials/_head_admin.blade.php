@@ -8,6 +8,8 @@
   <meta name="author" content="PIXINVENT">
   <title>
   </title>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
   <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.ico') }}">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
@@ -29,4 +31,9 @@
   <link href="{{asset('app-assets/toastr/toastr.css') }}" rel="stylesheet" />
   <script src="{{ asset('app-assets/js/core/libraries/jquery.min.js') }}"></script>
   @yield('style')
+  <style>
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+      padding-left: 25px !important;
+    }
+  </style>
 </head>

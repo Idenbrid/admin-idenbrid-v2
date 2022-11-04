@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,7 +14,9 @@ class BlogController extends Controller
     }
 
     public function create(){
-        return view('admin.blogs.create');
+
+        $categories = Category::all();
+        return view('admin.blogs.create',compact('categories'));
     }
 
     public function store(Request $request){
@@ -31,14 +34,15 @@ class BlogController extends Controller
             $blog->image   = $as_name;
         }
         $blog->save();
-        return redirect()->back();
+        $blog->categories()->attach($request->categories);
+        return redirect(route('admin.blog.index'));
     }
 
     public function edit($id)
     {
         $blog = Blog::find($id);
-
-        return view('admin.blogs.edit',compact('blog'));
+        $categories = Category::all();
+        return view('admin.blogs.edit',compact('blog','categories'));
     }
 
     public function update(Request $request,$id){
@@ -59,13 +63,15 @@ class BlogController extends Controller
             $image->move($destinationPath, $as_name);
             $blog->image = $as_name;
         }
-
         $blog->save();
+        $blog->categories()->sync($request->categories);
         return redirect(route('admin.blog.index'));
     }
 
     public function destroy($id){
-        Blog::find($id)->delete();
+        $blog = Blog::find($id);
+        $blog->categories()->detach();
+        $blog->delete();
         return redirect()->back()->with('error','削除されました。');
     }
 }

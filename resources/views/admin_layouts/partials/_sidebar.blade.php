@@ -1,6 +1,17 @@
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+            <li class="nav-item"><a href=""><i class="la la-user"></i><span class="menu-title" data-i18n="nav.dash.main">Categories</span></a>
+                <ul class="menu-content">
+                    <li class="{{ request()->routeIs('admin.category.create') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{ route('admin.category.create')}}" data-i18n="nav.dash.ecommerce">Create</a>
+                    </li>
+                    <li class="{{ request()->routeIs('admin.category.index') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{ route('admin.category.index') }}" data-i18n="nav.dash.ecommerce">View</a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item"><a href=""><i class="la la-user"></i><span class="menu-title" data-i18n="nav.dash.main">Blogs</span></a>
                 <ul class="menu-content">
                     <li class="{{ request()->routeIs('admin.blog.create') ? 'active' : '' }}">
@@ -21,6 +32,8 @@
                     </li>
                 </ul>
             </li>
+
+
              <li class="nav-item"><a href=""><i class="la la-user"></i><span class="menu-title" data-i18n="nav.dash.main">News</span></a>
                 <ul class="menu-content">
                     <li class="{{ request()->routeIs('admin.news.create') ? 'active' : '' }}">

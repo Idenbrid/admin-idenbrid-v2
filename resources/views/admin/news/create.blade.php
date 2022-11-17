@@ -49,6 +49,18 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control" for="userinput1">Image:</label>
+                                    <div class="col-md-9">
+                                        <input type="file" accept="image/*" id="userinput1"
+                                            class="form-control border-primary"
+                                            placeholder="Enter your car name here..." name="image" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-9">

@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\NewsController;
 
 
@@ -25,7 +26,12 @@ use App\Http\Controllers\NewsController;
 Route::get('/', function () {
     return view('auth.login');
 });
+    //contact us route
+Route::get('/contact', [ContactUsFormController::class, 'createForm'])->name('contact.form');
+Route::get('/contacts', [ContactUsFormController::class, 'cotactus_queries'])->name('contacts');
+Route::get('/contact/view/{id}', [ContactUsFormController::class, 'cotactus_view'])->name('contact.view');
 
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
@@ -33,6 +39,10 @@ Route::group([
     'prefix' => 'admin'
 ], function () {
 
+
+
+
+   
     // Blogs routes
     Route::get('blog/index', [BlogController::class, 'index'])->name('admin.blog.index');
     Route::get('blog/create', [BlogController::class, 'create'])->name('admin.blog.create');

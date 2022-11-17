@@ -24,6 +24,14 @@ class NewsController extends Controller
         $News->category_id = $request->category_id;
         $News->date = date('Y年m月d日');
         $News->description = $request->description;
+        if($request->hasfile('image'))
+        {
+            $image           = $request->file('image');
+            $as_name    = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/news');
+            $image->move($destinationPath, $as_name);
+            $News->image   = $as_name;
+        }
         $News->save();
         return redirect(route('admin.news.index'));
     }
@@ -43,6 +51,19 @@ class NewsController extends Controller
         $News->category_id = $request->category_id;
         $News->description = $request->description;
         $News->date = date('Y年m月d日');
+        if($request->file('image') == null)
+        {}
+        else
+        {
+            if(isset($request->image)) {
+                @unlink('/storage/news/'.$News->image);
+            }
+            $image      = $request->file('image');
+            $as_name    = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/news');
+            $image->move($destinationPath, $as_name);
+            $News->image = $as_name;
+        }
         $News->save();
         return redirect(route('admin.news.index'));
     }

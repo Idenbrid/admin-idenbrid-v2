@@ -566,6 +566,7 @@ class ComposerStaticInit22abb313dc8c40a482ad53c4f71fdd70
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\Car' => __DIR__ . '/../..' . '/app/Models/Car.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\News' => __DIR__ . '/../..' . '/app/Models/News.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\Speaker' => __DIR__ . '/../..' . '/app/Models/Speaker.php',

@@ -44,6 +44,16 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item"><a href=""><i class="la la-user"></i><span class="menu-title" data-i18n="nav.dash.main">Contact us</span></a>
+                <ul class="menu-content">
+                    <li class="{{ request()->routeIs('contact.form') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{ route('contact.form')}}" data-i18n="nav.dash.ecommerce">Create</a>
+                    </li>
+                    <li class="{{ request()->routeIs('contacts') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{ route('contacts') }}" data-i18n="nav.dash.ecommerce">ContactUs Queries</a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
     </div>

@@ -52,6 +52,9 @@
                     <li class="{{ request()->routeIs('contacts') ? 'active' : '' }}">
                         <a class="menu-item" href="{{ route('contacts') }}" data-i18n="nav.dash.ecommerce">ContactUs Queries</a>
                     </li>
+                    <li class="{{ request()->routeIs('get_started_query') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{ route('get_started_query') }}" data-i18n="nav.dash.ecommerce">Get Started Queries</a>
+                    </li>
                 </ul>
             </li>
 

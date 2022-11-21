@@ -25,13 +25,13 @@
                                 <div class="col-md-9">
                                     <div class="form-group row">
                                         <label class="col-md-3 label-control"
-                                            for="userinput1"><b>phone:</b>{{ $contact->phone }}</label>
+                                            for="userinput1"><b>phone:</b>{{ $contact->phone_number }}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group row">
                                         <label class="col-md-3 label-control"
-                                            for="userinput1"><b>subject:</b> {{ $contact->subject }}</label>
+                                            for="userinput1"><b>subject:</b> {{ $contact->summary }}</label>
                                     </div>
                                 </div>
                             </div>

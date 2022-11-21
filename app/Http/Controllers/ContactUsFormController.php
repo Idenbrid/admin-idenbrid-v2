@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactUsFormController extends Controller
 {
@@ -13,6 +14,10 @@ class ContactUsFormController extends Controller
       public function cotactus_queries() {
         $queries=Contact::all();
         return view('contact.contactus_queries',compact('queries'));
+      }
+      public function get_started_query() {
+        $queries=DB::table('project_quotations')->get();
+        return view('contact.get_started_queries',compact('queries'));
       }
       // Store Contact Form data
       public function ContactUsForm(Request $request) {

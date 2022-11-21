@@ -29,6 +29,7 @@ Route::get('/', function () {
     //contact us route
 Route::get('/contact', [ContactUsFormController::class, 'createForm'])->name('contact.form');
 Route::get('/contacts', [ContactUsFormController::class, 'cotactus_queries'])->name('contacts');
+Route::get('/get_started_query', [ContactUsFormController::class, 'get_started_query'])->name('get_started_query');
 Route::get('/contact/view/{id}', [ContactUsFormController::class, 'cotactus_view'])->name('contact.view');
 
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');

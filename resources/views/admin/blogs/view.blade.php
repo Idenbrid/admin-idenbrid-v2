@@ -56,7 +56,7 @@
                     @foreach($blogs as $blog)
                         <tr class="gradeX">
                             <td>{{$counter}}</td>
-                            <td><img src="{{asset('/storage/blog_images/'.$blog->image)}}" width="100" height="100"></td>
+                            <td><img src="{{asset('/public/storage/blog_images/'.$blog->image)}}" width="100" height="100"></td>
                             <td>{{$blog->title}}</td>
                             <td>{{$blog->date}}</td>
 
